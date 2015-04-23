@@ -86,7 +86,7 @@ class MY_Model extends CI_Model
      * By default we return our results as objects. If we need to override
      * this, we can, or, we could use the `as_array()` and `as_object()` scopes.
      */
-    protected $return_type = 'object';
+    protected $return_type = 'array';
     protected $_temporary_return_type = NULL;
 
     /* --------------------------------------------------------------
@@ -100,6 +100,7 @@ class MY_Model extends CI_Model
     public function __construct()
     {
         parent::__construct();
+		$this->load->database();
 
         $this->load->helper('inflector');
 

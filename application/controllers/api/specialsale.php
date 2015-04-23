@@ -17,26 +17,16 @@ class Specialsale extends REST_Controller{
         parent::__construct();
     }
 
-    function multi(){
-
-	}
-
-    function single(){
-		if( $this->get('id') ){
-			$this->_single_get();
-		}
-    }
-
 	/**
 	 * 单个的获取
 	 *
 	 */
-	function _single_get(){
+	function single_get(){
 		if( !$this->get('id') ){
 			$this->response(null, 404);
 		}
         $this->load->model('specialsale_model');
-		$specisalsale = @$this->specialsale_model->get( $this->get('id') );
+		$specisalsale = $this->specialsale_model->get( $this->get('id') );
 		$this->response($specisalsale, 200);
 	}
 

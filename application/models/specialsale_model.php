@@ -8,6 +8,4 @@
 class Specialsale_model extends MY_Model {
     public $_table      = 'special_sale';
     public $primary_key = 'special_sale_id';
-
-
 }
