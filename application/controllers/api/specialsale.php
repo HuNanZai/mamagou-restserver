@@ -34,8 +34,10 @@ class Specialsale extends REST_Controller{
 	 * 单个更新
 	 *
 	 */
-	function _single_post(){
-
+	function single_post(){
+		if( !$this->post('id') ){
+			$this->response(null, 404);
+		}
 	}
 
 	/**
