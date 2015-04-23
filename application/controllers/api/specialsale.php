@@ -6,6 +6,7 @@
  * Time: 上午9:49
  */
 
+include_once APPPATH."libraries/REST_Controller.php";
 /**
  * Class Specialsale
  * 专场相关的数据的操作
@@ -14,8 +15,6 @@ class Specialsale extends REST_Controller{
 
     function __construct(){
         parent::__construct();
-
-        $this->load->model('specialsale_model');
     }
 
     function multi(){
@@ -36,6 +35,7 @@ class Specialsale extends REST_Controller{
 		if( !$this->get('id') ){
 			$this->response(null, 404);
 		}
+        $this->load->model('specialsale_model');
 		$specisalsale = @$this->specialsale_model->get( $this->get('id') );
 		$this->response($specisalsale, 200);
 	}
